@@ -1,8 +1,8 @@
 package org.panda.usercenter.model.domain.request;
 
-import lombok.Data;
-
 import java.io.Serializable;
+
+import lombok.Data;
 
 /**
  * 用户注册请求体
@@ -35,5 +35,3 @@ public class UserRegisterRequest implements Serializable {
      */
     private String planetCode;
 }
-
-// [加入编程导航](https://yupi.icu) 入门捷径+交流答疑+项目实战+求职指导，帮你自学编程不走弯路

@@ -1,7 +1,15 @@
 package org.panda.usercenter.controller;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import static org.panda.usercenter.contant.UserConstant.ADMIN_ROLE;
+import static org.panda.usercenter.contant.UserConstant.USER_LOGIN_STATE;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.commons.lang3.StringUtils;
 import org.panda.usercenter.common.BaseResponse;
 import org.panda.usercenter.common.ErrorCode;
 import org.panda.usercenter.common.ResultUtils;
@@ -10,17 +18,9 @@ import org.panda.usercenter.model.domain.User;
 import org.panda.usercenter.model.domain.request.UserLoginRequest;
 import org.panda.usercenter.model.domain.request.UserRegisterRequest;
 import org.panda.usercenter.service.UserService;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-
-import java.util.List;
-import java.util.stream.Collectors;
-
-import static org.panda.usercenter.contant.UserConstant.ADMIN_ROLE;
-import static org.panda.usercenter.contant.UserConstant.USER_LOGIN_STATE;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 
 /**
  * 用户接口
@@ -52,7 +52,7 @@ public class UserController {
         String checkPassword = userRegisterRequest.getCheckPassword();
         String planetCode = userRegisterRequest.getPlanetCode();
         if (StringUtils.isAnyBlank(userAccount, userPassword, checkPassword, planetCode)) {
-            return null;
+            return ResultUtils.error(ErrorCode.PARAMS_ERROR);
         }
         long result = userService.userRegister(userAccount, userPassword, checkPassword, planetCode);
         return ResultUtils.success(result);
@@ -114,7 +114,6 @@ public class UserController {
         return ResultUtils.success(safetyUser);
     }
 
-    // https://yupi.icu/
 
     @GetMapping("/search")
     public BaseResponse<List<User>> searchUsers(String username, HttpServletRequest request) {
@@ -142,7 +141,6 @@ public class UserController {
         return ResultUtils.success(b);
     }
 
-    // [鱼皮的学习圈](https://yupi.icu) 从 0 到 1 求职指导，斩获 offer！1 对 1 简历优化服务、2000+ 求职面试经验分享、200+ 真实简历和建议参考、25w 字前后端精选面试题
 
     /**
      * 是否为管理员

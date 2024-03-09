@@ -1,23 +1,26 @@
 package org.panda.usercenter.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import org.panda.usercenter.common.ErrorCode;
-import org.panda.usercenter.exception.BusinessException;
-import org.panda.usercenter.model.domain.User;
-import org.panda.usercenter.service.UserService;
-import org.panda.usercenter.mapper.UserMapper;
-import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
-import org.springframework.stereotype.Service;
-import org.springframework.util.DigestUtils;
+import static org.panda.usercenter.contant.UserConstant.USER_LOGIN_STATE;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static org.panda.usercenter.contant.UserConstant.USER_LOGIN_STATE;
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.commons.lang3.StringUtils;
+import org.panda.usercenter.common.ErrorCode;
+import org.panda.usercenter.exception.BusinessException;
+import org.panda.usercenter.mapper.UserMapper;
+import org.panda.usercenter.model.domain.User;
+import org.panda.usercenter.service.UserService;
+import org.springframework.stereotype.Service;
+import org.springframework.util.DigestUtils;
+
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * 用户服务实现类
@@ -38,7 +41,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
     /**
      * 盐值，混淆密码
      */
-    private static final String SALT = "yupi";
+    private static final String SALT = "panda";
 
     /**
      * 用户注册
@@ -188,5 +191,3 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
     }
 
 }
-
-// [加入我们](https://yupi.icu) 从 0 到 1 项目实战，经验拉满！10+ 原创项目手把手教程、7 日项目提升训练营、1000+ 项目经验笔记、60+ 编程经验分享直播

@@ -3,9 +3,10 @@ package org.panda.usercenter.exception;
 import org.panda.usercenter.common.BaseResponse;
 import org.panda.usercenter.common.ErrorCode;
 import org.panda.usercenter.common.ResultUtils;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * 全局异常处理器
@@ -23,7 +24,6 @@ public class GlobalExceptionHandler {
         return ResultUtils.error(e.getCode(), e.getMessage(), e.getDescription());
     }
 
-    //https://github.com/liyupi
 
     @ExceptionHandler(RuntimeException.class)
     public BaseResponse<?> runtimeExceptionHandler(RuntimeException e) {
