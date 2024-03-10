@@ -68,7 +68,7 @@ public class UserServiceTest {
         Assertions.assertTrue(result);
     }
 
-    // https://space.bilibili.com/12890453/
+    
 
     /**
      * 测试获取用户
