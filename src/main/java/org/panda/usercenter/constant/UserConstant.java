@@ -1,4 +1,4 @@
-package org.panda.usercenter.contant;
+package org.panda.usercenter.constant;
 
 /**
  * 用户常量

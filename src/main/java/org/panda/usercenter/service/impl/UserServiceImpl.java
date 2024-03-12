@@ -1,6 +1,6 @@
 package org.panda.usercenter.service.impl;
 
-import static org.panda.usercenter.contant.UserConstant.USER_LOGIN_STATE;
+import static org.panda.usercenter.constant.UserConstant.USER_LOGIN_STATE;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

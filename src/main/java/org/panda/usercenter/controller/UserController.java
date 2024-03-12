@@ -1,7 +1,7 @@
 package org.panda.usercenter.controller;
 
-import static org.panda.usercenter.contant.UserConstant.ADMIN_ROLE;
-import static org.panda.usercenter.contant.UserConstant.USER_LOGIN_STATE;
+import static org.panda.usercenter.constant.UserConstant.ADMIN_ROLE;
+import static org.panda.usercenter.constant.UserConstant.USER_LOGIN_STATE;
 
 import java.util.List;
 import java.util.stream.Collectors;
